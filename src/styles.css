@@ -184,3 +184,62 @@ html {
     @apply px-8;
   }
 }
+
+@keyframes rotateInFromLeft {
+  0% {
+    transform: rotate(20deg) scale(0.95) translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1) translateX(0);
+    opacity: 1;
+  }
+}
+
+.dialog-rotate-in {
+  animation: rotateInFromLeft 0.5s ease-out forwards;
+  transform-origin: left center;
+}
+
+@keyframes rotateOutToLeft {
+  0% {
+    transform: rotate(0deg) scale(1) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(20deg) scale(0.95) translateX(-30px);
+    opacity: 0;
+  }
+}
+
+.dialog-rotate-out {
+  animation: rotateOutToLeft 0.4s ease-in forwards;
+  transform-origin: left center;
+}
+
+/*  react phone number --> */
+
+.country-list {
+  background: var(--background) !important;
+}
+
+.phone-number-input {
+  background: var(--input) !important;
+  border: var(--border) !important;
+  width: 100% !important;
+}
+
+.flag-dropdown {
+  background: var(--input) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+}
+
+.country.highlight {
+  background: var(--accent) !important;
+}
+
+.country:hover {
+  background: var(--input) !important;
+}
