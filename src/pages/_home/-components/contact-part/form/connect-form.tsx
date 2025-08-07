@@ -41,16 +41,16 @@ function ConnectForm() {
         },
       }),
       {
-        loading: 'در حال بررسی شماره...',
+        loading: 'Checking phone number ...',
         success: (res) => {
           if (res.data.status === 'success' && res.data.phone_valid) {
             connectForm.reset()
-            return '✅ شماره معتبر است و پیام ارسال شد'
+            return 'Phone number is valid & send message successfully'
           } else {
-            return 'شماره نامعتبر است'
+            return 'Phone number is not valid'
           }
         },
-        error: (err) => {
+        error: () => {
           return ' خطا در بررسی شماره'
         },
       },

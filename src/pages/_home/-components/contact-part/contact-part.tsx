@@ -13,7 +13,7 @@ import {
 import { cn } from '@/lib/utils'
 import ConnectForm from './form/connect-form'
 
-function AboutPart() {
+function ContactPart() {
   const sectionRef = useRef(null)
   const isView = useInView(sectionRef, {})
 
@@ -21,6 +21,7 @@ function AboutPart() {
 
   return (
     <div
+      id="text-me"
       ref={sectionRef}
       className="flex flex-col justify-center items-center gap-8 mt-20"
     >
@@ -47,7 +48,7 @@ function AboutPart() {
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
                 <Button className="p-6 rounded-xl" size="lg">
-                  Connect with you
+                  Text to me
                 </Button>
               </DialogTrigger>
 
@@ -58,7 +59,7 @@ function AboutPart() {
                 showCloseButton={false}
               >
                 <DialogHeader className="flex justify-center items-center">
-                  <DialogTitle> Connect with me</DialogTitle>
+                  <DialogTitle> Tanks for send message with me</DialogTitle>
                   <DialogDescription className="hidden" />
                 </DialogHeader>
                 <ConnectForm />
@@ -71,4 +72,4 @@ function AboutPart() {
   )
 }
 
-export default AboutPart
+export default ContactPart

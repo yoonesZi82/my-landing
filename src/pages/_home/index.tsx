@@ -4,7 +4,8 @@ import ShowIcon from './-components/show-icon'
 import ScrollDown from './-components/scroll-down'
 import ProjectPart from './-components/project-part'
 import { useRef } from 'react'
-import AboutPart from './-components/about-part/about-part'
+import ContactPart from './-components/contact-part/contact-part'
+import AboutPart from './-components/about-part'
 
 export const Route = createFileRoute('/_home/')({
   component: Home,
@@ -28,6 +29,7 @@ function Home() {
           ref={ref}
         >
           <ProjectPart />
+          <ContactPart />
           <AboutPart />
         </div>
       </div>

@@ -5,6 +5,7 @@ import type { QueryClient } from '@tanstack/react-query'
 import { ThemeProvider } from '@/providers/theme-provider.tsx'
 import Navbar from '@/components/layout/navbar/navbar.tsx'
 import { Toaster } from '@/components/ui/sonner'
+import Footer from '@/components/layout/footer/footer.tsx'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -24,6 +25,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
           <Outlet />
           <Toaster position="top-center" />
         </main>
+        <Footer />
       </ThemeProvider>
       <TanStackRouterDevtools />
       <TanStackQueryLayout />

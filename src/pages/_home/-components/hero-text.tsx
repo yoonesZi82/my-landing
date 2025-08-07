@@ -77,7 +77,7 @@ export default function HeroText() {
           size="lg"
           asChild
         >
-          <a href="#">Text to me</a>
+          <a href="#text-me">Text to me</a>
         </Button>
       </div>
     </div>
