@@ -7,6 +7,7 @@
 body {
   @apply m-0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  @apply overflow-x-hidden;
 }
 
 html {
@@ -15,13 +16,14 @@ html {
 
 :root {
   --radius: 0.625rem;
+  --blue-border: oklch(0.5967 0.2191 262.8304);
   --background: oklch(0.9842 0.0034 247.8575);
   --foreground: oklch(0.1438 0.0218 239.9025);
   --card: oklch(0.977 0.0059 239.8185);
   --card-foreground: oklch(0.1282 0.0184 234.0646);
   --popover: oklch(0.977 0.0059 239.8185);
   --popover-foreground: oklch(0.1282 0.0184 234.0646);
-  --primary: oklch(0.5713 0.1241 248.4465);
+  --primary: oklch(0.2295 0.052 262.3049);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9149 0.0035 247.8611);
   --secondary-foreground: oklch(0.4064 0.0106 248.09);
@@ -76,7 +78,7 @@ html {
   --card-foreground: oklch(0.9846 0.0017 247.8389);
   --popover: oklch(0.111 0.0131 239.3215);
   --popover-foreground: oklch(0.9846 0.0017 247.8389);
-  --primary: oklch(0.5713 0.1241 248.4465);
+  --primary: oklch(0.2295 0.052 262.3049);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.2144 0.0109 242.2662);
   --secondary-foreground: oklch(0.76 0.0243 246.1274);
@@ -122,6 +124,7 @@ html {
 }
 
 @theme inline {
+  --color-blue-border: var(--blue-border);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -215,6 +218,33 @@ html {
 .dialog-rotate-out {
   animation: rotateOutToLeft 0.4s ease-in forwards;
   transform-origin: left center;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
 }
 
 /*  react phone number --> */

@@ -10,11 +10,11 @@ const footerLinks = [
   },
   {
     title: 'Project',
-    href: '/project',
+    href: '#project',
   },
   {
     title: 'About me',
-    href: '/about-me',
+    href: '#about-me',
   },
 ]
 

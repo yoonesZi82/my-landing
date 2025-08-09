@@ -16,8 +16,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     <>
       <ThemeProvider
         attribute="class"
-        defaultTheme="system"
-        enableSystem
+        defaultTheme="dark"
+        enableSystem={false}
         disableTransitionOnChange
       >
         <Navbar />

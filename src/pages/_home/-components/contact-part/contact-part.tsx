@@ -23,11 +23,11 @@ function ContactPart() {
     <div
       id="text-me"
       ref={sectionRef}
-      className="flex flex-col justify-center items-center gap-8 mt-20"
+      className="flex flex-col justify-center items-center gap-8 scroll-mt-20 lg:scroll-mt-40"
     >
       {isView ? (
         <>
-          <h2 className="w-full lg:w-[60%] font-medium text-3xl lg:text-4xl text-center leading-[1.4]">
+          <h2 className="w-full lg:w-[60%] font-medium text-[22px] lg:text-4xl text-center leading-[1.4]">
             <Typewriter
               words={[
                 'Want to get in touch or request something custom? Just fill out the form I’d love to hear from you!',
