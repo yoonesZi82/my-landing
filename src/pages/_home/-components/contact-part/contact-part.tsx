@@ -12,12 +12,14 @@ import {
 } from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
 import ConnectForm from './form/connect-form'
+import { Mail } from 'lucide-react'
 
 function ContactPart() {
   const sectionRef = useRef(null)
   const isView = useInView(sectionRef, {})
 
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoopEnd, setIsLoopEnd] = useState(false)
 
   return (
     <div
@@ -27,19 +29,26 @@ function ContactPart() {
     >
       {isView ? (
         <>
-          <h2 className="w-full lg:w-[60%] font-medium text-[22px] lg:text-4xl text-center leading-[1.4]">
+          <div className="bg-clip-text bg-gradient-to-b from-primary dark:from-white-title to-primary/80 dark:to-blue-title font-semibold text-transparent text-2xl lg:text-4xl text-center leading-[120%]">
             <Typewriter
-              words={[
-                'Want to get in touch or request something custom? Just fill out the form I’d love to hear from you!',
-              ]}
+              words={['Want to get in touch or request something custom?']}
               loop={1}
+              onType={() => setTimeout(() => setIsLoopEnd(true), 1000)}
               typeSpeed={50}
               deleteSpeed={0}
-              delaySpeed={1000000}
-              cursorStyle="|"
+              delaySpeed={1000}
             />
-          </h2>
-
+            <br />
+            {isLoopEnd && (
+              <Typewriter
+                words={['Just fill out the form I’d love to hear from you!']}
+                loop={1}
+                typeSpeed={50}
+                deleteSpeed={0}
+                delaySpeed={1000000}
+              />
+            )}
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.5, rotate: 360 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -47,8 +56,9 @@ function ContactPart() {
           >
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button className="p-6 rounded-xl" size="lg">
+                <Button className="px-8 rounded-xl" size="lg">
                   Text to me
+                  <Mail />
                 </Button>
               </DialogTrigger>
 

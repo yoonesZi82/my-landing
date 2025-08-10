@@ -53,7 +53,7 @@ function LibrarySlider() {
     <>
       <div className="flex flex-col justify-center items-center overflow-hidden container">
         <div className="mt-32 container">
-          <div className="bg-clip-text bg-gradient-to-b from-primary dark:from-[#edeffd] to-primary/80 dark:to-[#7b9cda] font-semibold text-transparent text-2xl lg:text-3xl text-center">
+          <div className="bg-clip-text bg-gradient-to-b from-primary dark:from-white-title to-primary/80 dark:to-blue-title font-semibold text-transparent text-2xl lg:text-3xl text-center">
             My experience with various
             <br />
             Frameworks & Libraries
@@ -73,7 +73,8 @@ function LibrarySlider() {
             density={800}
             speed={1}
             size={1.1}
-            color={theme === 'dark' ? '#48b6ff' : '#0f1c35'}
+            mousemove={true}
+            color={theme === 'dark' ? '#fff' : '#0f1c35'}
             className="bottom-0 absolute inset-x-0 w-full h-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
           />
         </div>
