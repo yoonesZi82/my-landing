@@ -15,49 +15,49 @@ const projects = [
   {
     title: 'TypeScript',
     description:
-      'TypeScript is a programming language that allows you to implement complex features on web pages.',
+      'I  have over two years of experience working with TypeScript, during which I have developed various applications across different domains. This experience has enhanced my ability to build type-safe, efficient, and well-structured projects, leveraging TypeScript’s powerful features to deliver high-quality software.',
     src: 'ts.jpg',
     color: '#007ACC',
   },
   {
     title: 'React',
     description:
-      'React is a JavaScript library for building user interfaces. It is a declarative, efficient, and flexible JavaScript library for building user interfaces.',
+      'I have over three years of experience working with React, during which I have developed a wide range of interactive and responsive web applications. This experience has strengthened my skills in building scalable, maintainable, and user-friendly interfaces, leveraging React’s component-based architecture and ecosystem to deliver high-quality solutions.',
     src: 'react.jpg',
     color: '#1b4f97',
   },
   {
     title: 'Next.js ',
     description:
-      'Next.js is a powerful framework for building web applications. It is a React framework that allows you to build web applications with server-side rendering and static generation.',
+      'I have over three years of experience working with Next.js, during which I have developed performant, SEO-friendly, and scalable web applications. This experience has strengthened my ability to create full-stack solutions, leveraging Next.js features such as server-side rendering, static site generation, and API routes to deliver high-quality, production-ready applications.',
     src: 'nextjs.jpg',
     color: '#151516',
   },
   {
     title: 'Node.js',
     description:
-      'Node.js is a runtime environment for executing JavaScript code outside of a browser. It is a JavaScript runtime that allows you to build server-side applications with server-side rendering and static generation.',
+      'I have over one years of experience working with Node.js, during which I have built scalable, efficient, and secure backend services and APIs. This experience has enhanced my skills in designing robust server-side architectures, integrating databases, and optimizing application performance, leveraging Node.js’s event-driven, non-blocking model to deliver high-quality backend solutions.',
     src: 'node.jpg',
     color: '#339933',
   },
   {
     title: 'Nest.js',
     description:
-      'Nest.js is a framework for building server-side applications. It is a Node.js framework that allows you to build server-side applications with server-side rendering and static generation.',
+      'I have over two years of experience working with Nest.js, during which I have developed scalable, maintainable, and well-structured backend applications. This experience has strengthened my skills in building modular architectures, implementing RESTful and GraphQL APIs, and integrating various databases, leveraging Nest.js’s powerful TypeScript-based framework to deliver high-quality server-side solutions.',
     src: 'nest.png',
     color: '#E0234E',
   },
   {
     title: 'Tailwind CSS',
     description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.',
+      'I have over three years of experience working with Tailwind CSS, using it to build responsive, modern, and visually appealing user interfaces. My experience includes creating custom designs efficiently by leveraging Tailwind’s utility-first approach, which allows rapid styling and consistent design across projects. This has helped me deliver clean and maintainable UI code in various web applications.',
     src: 'tailwind.png',
     color: '#38BDF8',
   },
   {
-    title: 'And more...',
+    title: 'And Me...',
     description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.',
+      'My name is Yoones, born in 2003. I am a computer engineer specializing in software engineering. I have been working in the frontend field for 4 years and I am an expert in this area. Using the technologies I know, I can implement various and diverse designs with different, user-friendly UI/UX. For the past year, I have also started working in the backend field. Using Express and Nest.js, I can develop solid backend solutions for different projects. You can fully entrust your project to me because I am a full-stack developer.',
     src: 'me.jpg',
     color: '#1a1c20',
   },

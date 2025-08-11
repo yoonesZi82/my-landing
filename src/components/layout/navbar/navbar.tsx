@@ -16,13 +16,17 @@ function Navbar() {
 
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="top-6 z-[999] fixed w-full container">
+      <div className="z-[999] pt-6 w-full container">
         <nav className="bg-primary rounded-full w-full h-16">
-          <div className="flex justify-between items-center mx-auto px-4 h-full">
+          <div className="flex justify-between items-center px-4 h-full">
             <Logo />
             <div className="flex items-center gap-3">
-              <Button variant="secondary" className="border-none rounded-full">
-                Text to me
+              <Button
+                variant="secondary"
+                className="border-none rounded-full"
+                asChild
+              >
+                <a href="#text-me">Text to me</a>
               </Button>
               <Button
                 size="icon"

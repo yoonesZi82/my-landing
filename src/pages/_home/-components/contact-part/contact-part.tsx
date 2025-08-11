@@ -16,7 +16,7 @@ import { Mail } from 'lucide-react'
 
 function ContactPart() {
   const sectionRef = useRef(null)
-  const isView = useInView(sectionRef, {})
+  const isView = useInView(sectionRef, { once: true })
 
   const [isOpen, setIsOpen] = useState(false)
   const [isLoopEnd, setIsLoopEnd] = useState(false)

@@ -1,6 +1,6 @@
 import { motion, useInView, useTransform } from 'framer-motion'
 import { MotionValue } from 'motion/react'
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { Separator } from '../ui/separator'
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -8,7 +8,7 @@ interface CardProps {
   i: number
   title: string
   colorDescription?: string
-  description: string
+  description: ReactNode | string
   descriptionMe?: string
   src: string
   color: string
@@ -37,7 +37,7 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={container}
-      className="top-0 sticky flex justify-center items-center h-screen"
+      className="top-0 sticky flex justify-center items-center mb-32 lg:mb-28 h-screen"
     >
       <motion.div
         ref={boxText}
@@ -46,7 +46,7 @@ export const Card: React.FC<CardProps> = ({
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className={`flex flex-col relative -top-[25%] overflow-hidden h-[600px] max-h-[600px] w-full lg:w-[80%] rounded-xl p-10 origin-top`}
+        className={`flex flex-col relative -top-[25%] overflow-hidden min-h-[600px] max-h-[900px] w-full lg:w-[80%] rounded-xl p-10 origin-top`}
       >
         <h2
           className="font-semibold text-2xl text-center"
@@ -54,19 +54,15 @@ export const Card: React.FC<CardProps> = ({
         >
           {title}
         </h2>
-        <div
-          className={`flex flex-col-reverse items-center lg:flex-row h-full mt-5 gap-4 lg:gap-10`}
-        >
-          <div
-            className={`lg:w-[40%] gap-2 flex flex-col justify-center items-center lg:justify-start lg:items-start w-full relative  `}
-          >
+        <div className="flex xl:flex-row flex-col-reverse items-center gap-4 lg:gap-10 mt-5 h-full">
+          <div className="relative flex flex-col justify-center lg:justify-start items-center lg:items-start gap-2 w-full xl:w-[40%]">
             <p
-              className="text-lg text-center lg:text-justify"
+              className="text-lg text-center xl:text-start"
               style={{ color: colorDescription }}
             >
               {isInView && (
                 <Typewriter
-                  words={[description]}
+                  words={[description as string]}
                   loop={1}
                   cursor={false}
                   cursorStyle="|"
@@ -90,7 +86,7 @@ export const Card: React.FC<CardProps> = ({
             <img
               src={`/images/${src}`}
               alt="image"
-              className="rounded-2xl w-full h-full max-h-[400px] object-cover"
+              className="rounded-2xl w-full h-full max-h-[200px] md:max-h-[350px] lg:max-h-[600px] object-cover"
             />
           </div>
         </div>
