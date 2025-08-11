@@ -6,13 +6,14 @@ function HeroSection() {
   const { theme } = useTheme()
 
   return (
-    <main className="py-5 lg:py-0 w-full overflow-hidden">
+    <main className="w-full overflow-hidden">
       <section className="relative w-full h-full lg:h-[90vh] overflow-hidden">
-        <article className="z-10 relative gap-4 grid text-center container">
+        <div className="top-0 right-0 bottom-0 left-0 absolute bg-[linear-gradient(to_right,#7a7a7a2c_1px,transparent_1px),linear-gradient(to_bottom,#7a7a7a2c_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+        <article className="z-10 relative gap-4 grid py-28 text-center container">
           <span className="inline-block bg-primary mx-auto p-1 px-3 border border-blue-border rounded-full w-fit text-primary-foreground text-sm xl:text-base">
             Full stack developer
           </span>
-          <h1 className="bg-clip-text bg-gradient-to-b from-primary dark:from-[#edeffd] to-primary/80 dark:to-[#7b9cda] font-semibold text-transparent text-5xl xl:text-5xl 2xl:text-6xl leading-[100%] tracking-tighter">
+          <h1 className="bg-clip-text bg-gradient-to-b from-primary dark:from-white-title to-primary/80 dark:to-blue-title font-semibold text-transparent text-3xl xl:text-5xl 2xl:text-6xl leading-[100%] tracking-tighter">
             Turning Ideas into Code <br /> with Precision and Passion
           </h1>
           <span>
@@ -30,7 +31,7 @@ function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="px-10 rounded-xl"
+              className="z-[3] px-10 rounded-xl"
               asChild
             >
               <a href="#text-me">Text to me</a>

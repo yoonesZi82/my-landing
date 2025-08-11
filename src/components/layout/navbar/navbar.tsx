@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="z-[999] pt-6 w-full container">
+      <div className="top-0 z-[999] absolute pt-6 w-full container">
         <nav className="bg-primary rounded-full w-full h-16">
           <div className="flex justify-between items-center px-4 h-full">
             <Logo />

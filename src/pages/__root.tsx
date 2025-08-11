@@ -21,7 +21,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         disableTransitionOnChange
       >
         <Navbar />
-        <main className="pt-10">
+        <main className="">
           <Outlet />
           <Toaster position="top-center" />
         </main>

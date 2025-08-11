@@ -5,6 +5,21 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 import { RefreshCcw } from 'lucide-react'
+import type { ProjectType } from '@/components/cards/types/project.type'
+
+const projects: ProjectType[] = [
+  {
+    id: 1,
+    title: 'Project 1',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias repudiandae eaque perspiciatis aliquid dolorum eligendi vitae sapiente recusandae? Aspernatur placeat molestiae ipsa? Itaque fugiat asperiores deleniti beatae officia, inventore sit, officiis illum ea est et magni deserunt, cumque exercitationem. Minus quae placeat omnis dolore corrupti fugiat praesentium quo, pariatur  perspiciatis.',
+    projectUrl: 'logo.png',
+    link: 'https://www.google.com',
+    framework: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+]
 
 function ProjectPart() {
   const isMobile = useIsMobile()
@@ -32,7 +47,7 @@ function ProjectPart() {
           ref={cardsRef}
           className="place-content-center place-items-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
         >
-          {Array.from({ length: 6 }).map((_, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -44,7 +59,7 @@ function ProjectPart() {
               }}
               className="w-full h-full"
             >
-              <ProjectCard id={index + 1} />
+              <ProjectCard project={project} />
             </motion.div>
           ))}
         </div>
