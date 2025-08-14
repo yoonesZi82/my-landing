@@ -18,7 +18,7 @@ function Home() {
     <ReactLenis root>
       <div className="flex flex-col gap-10">
         <HeroSection />
-        <div className="bg-black/10 rounded-[25%_25%_25%_25%/1%_1%_0%_0%] w-full">
+        <div className="bg-black/5 lg:bg-black/5 lg:dark:bg-black/5 dark:bg-white/5 rounded-[25%_25%_25%_25%/1%_1%_0%_0%] w-full">
           <ScrollDown setRef={(el: HTMLDivElement) => (ref.current = el)} />
           <div
             id="project"

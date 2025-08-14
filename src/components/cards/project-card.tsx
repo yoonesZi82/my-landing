@@ -27,9 +27,12 @@ function ProjectCard({ project }: { project: ProjectType }) {
     <Card className="border-none w-full h-full">
       <CardHeader className="w-full max-h-[250px] overflow-hidden">
         <img
-          src={`/images/${project.projectUrl}`}
+          src={`/imagess/${project.projectUrl}`}
           alt="site"
           className="rounded-xl w-full max-h-[250px] object-cover"
+          onError={(e) => {
+            e.currentTarget.src = '/images/logo.png'
+          }}
         />
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
