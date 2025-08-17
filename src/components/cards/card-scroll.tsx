@@ -66,7 +66,7 @@ export const Card: React.FC<CardProps> = ({
                   loop={1}
                   cursor={false}
                   cursorStyle="|"
-                  typeSpeed={50}
+                  typeSpeed={20}
                   deleteSpeed={1000000}
                 />
               )}
@@ -81,12 +81,12 @@ export const Card: React.FC<CardProps> = ({
           </div>
 
           <div
-            className={`relative lg:w-[60%] w-full h-full rounded-lg overflow-hidden flex justify-center items-center`}
+            className={`relative xl:w-[60%] w-full h-full rounded-lg overflow-hidden flex justify-center items-center`}
           >
             <img
               src={`/images/${src}`}
               alt="image"
-              className="rounded-2xl w-full h-full max-h-[200px] md:max-h-[350px] lg:max-h-[600px] object-cover"
+              className="rounded-2xl w-full h-[400px] max-h-[200px] md:max-h-[350px] lg:max-h-[600px] object-cover"
             />
           </div>
         </div>

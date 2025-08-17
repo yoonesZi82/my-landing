@@ -86,6 +86,7 @@ function Project({ project }: { project: ProjectType }) {
               <AvatarImage
                 src={`${baseUrlFramework}/${fw.framework.frameworkUrl}`}
                 alt={fw.framework.name}
+                className="w-full h-full object-cover"
               />
               <AvatarFallback className="bg-primary text-white">
                 {fw.framework.name.charAt(0).toUpperCase()}

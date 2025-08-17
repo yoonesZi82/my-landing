@@ -1,19 +1,29 @@
-import NextJs from '@/components/icons/NextJs'
+import type { FrameworkType } from '@/components/cards/types/framework.type'
+import LoadingDot from '@/components/loading/LoadingDot'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import Marquee from '@/components/ui/marquess'
 import { Sparkles } from '@/components/ui/sparkles'
+import useFrameworks from '@/query/framework-query'
 import { useTheme } from 'next-themes'
 
 const ReviewCard = ({
-  icon,
+  frameworkUrl,
   name,
 }: {
-  icon: React.ReactNode
+  frameworkUrl: string
   name: string
 }) => {
+  const baseFrameworkUrl = import.meta.env.VITE_BASE_URL_FRAMEWORK
   return (
     <figure className="relative w-50 overflow-hidden cursor-pointer">
       <div className="flex flex-col items-center gap-2 [&_svg]:size-10">
-        {icon}
+        <Avatar className="size-16">
+          <AvatarImage
+            src={`${baseFrameworkUrl}/${frameworkUrl}`}
+            className="w-full h-full object-cover"
+          />
+          <AvatarFallback>{name.charAt(0).toUpperCase()}</AvatarFallback>
+        </Avatar>
         <p className="font-medium dark:text-white text-sm">{name}</p>
       </div>
     </figure>
@@ -22,50 +32,39 @@ const ReviewCard = ({
 
 function LibrarySlider() {
   const { theme } = useTheme()
-  const reviews = [
-    {
-      name: 'Typescript',
-      icon: <NextJs />,
-    },
-    {
-      name: 'Javascript',
-      icon: <NextJs />,
-    },
-    {
-      name: 'Html',
-      icon: <NextJs />,
-    },
-    {
-      name: 'Css',
-      icon: <NextJs />,
-    },
-    {
-      name: 'ReactJs',
-      icon: <NextJs />,
-    },
-    {
-      name: 'NestJs',
-      icon: <NextJs />,
-    },
-  ]
+  const { data: frameworks = [], isLoading, isError } = useFrameworks()
+
+  console.log('frameworks--->', frameworks)
 
   return (
     <>
       <div className="flex flex-col justify-center items-center overflow-hidden container">
-        <div className="mt-32 container">
-          <div className="bg-clip-text bg-gradient-to-b from-primary dark:from-white-title to-primary/80 dark:to-blue-title font-semibold text-transparent text-2xl lg:text-3xl text-center">
-            My experience with various
-            <br />
-            Frameworks & Libraries
+        {isError ? (
+          <div className="mt-32 container">
+            <p className="text-2xl lg:text-3xl text-center">
+              Error loading frameworks
+            </p>
           </div>
-          <div className="relative flex flex-col justify-center items-center bg-transparent py-20 w-full h-full overflow-hidden">
-            <Marquee pauseOnHover className="[--duration:20s]">
-              {reviews.map((review) => (
-                <ReviewCard key={review.name} {...review} />
-              ))}
-            </Marquee>
+        ) : isLoading ? (
+          <div className="flex justify-center items-center mt-32 container">
+            <LoadingDot className={{ dot: 'dark:bg-white bg-primary' }} />
           </div>
-        </div>
+        ) : (
+          <div className="mt-32 container">
+            <div className="bg-clip-text bg-gradient-to-b from-primary dark:from-white-title to-primary/80 dark:to-blue-title font-semibold text-transparent text-2xl lg:text-3xl text-center">
+              My experience with various
+              <br />
+              Frameworks & Libraries
+            </div>
+            <div className="relative flex flex-col justify-center items-center bg-transparent py-20 w-full h-full overflow-hidden">
+              <Marquee pauseOnHover className="[--duration:20s]">
+                {frameworks.map((framework: FrameworkType) => (
+                  <ReviewCard key={framework.id} {...framework} />
+                ))}
+              </Marquee>
+            </div>
+          </div>
+        )}
         <div className="after:top-1/2 after:-left-1/2 before:absolute after:absolute relative before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#369eff,transparent_80%)] after:bg-secondary before:opacity-100 -mt-42 lg:-mt-38 after:border-t after:border-border after:rounded-[100%] w-screen after:w-[200%] h-96 after:aspect-[1/0.7] overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)]">
           <div className="top-0 right-0 bottom-0 left-0 absolute bg-[linear-gradient(to_right,#ffffff2c_1px,transparent_1px),linear-gradient(to_bottom,#3a3a3a01_1px,transparent_1px)] bg-[size:70px_80px]"></div>
 

@@ -8,12 +8,13 @@ import { Button } from '@/components/ui/button'
 import { RefreshCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import ProjectSkeleton from '@/components/cards/project-skeleton'
+import { Separator } from '@/components/ui/separator'
 
 const PAGE_SIZE = 1
 
 async function fetchProjects({ pageParam = 1 }): Promise<ProjectType[]> {
   const { data } = await axios.get(
-    `https://wep-yoones-api-production.up.railway.app/projects`,
+    `https://web-yoones-api.onrender.com/projects`,
     { params: { page: pageParam, limit: PAGE_SIZE } },
   )
   return data.data
@@ -42,14 +43,30 @@ function ProjectSection() {
   const allProjects = data?.pages ? data.pages.flatMap((page) => page) : []
 
   return (
-    <div className="flex flex-col justify-center items-center gap-5 w-full">
+    <div
+      id="projects"
+      className="flex flex-col justify-center items-center gap-5 w-full"
+    >
+      <div className="relative flex justify-center items-center my-4 w-full overflow-hidden">
+        <Separator className="bg-transparent border border-t border-border w-full h-1" />
+        <div className="px-6 font-semibold text-2xl lg:text-5xl text-center">
+          {' '}
+          Projects{' '}
+        </div>
+        <Separator className="bg-transparent border border-t border-border w-full h-1" />
+      </div>
       <div
         className={cn(
-          'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-center place-items-center',
+          'w-full ',
+          isError
+            ? 'flex justify-center items-center'
+            : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-center place-items-center',
         )}
       >
         {isError ? (
-          <p>Something went wrong , please try again later</p>
+          <p className="text-2xl lg:text-3xl text-center">
+            Something went wrong , please try again later
+          </p>
         ) : (
           <>
             {isLoading &&

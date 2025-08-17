@@ -17,6 +17,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import axios from 'axios'
 import { toast } from 'sonner'
+import { Send } from 'lucide-react'
 
 function ConnectForm() {
   const connectForm = useForm<z.infer<typeof connectSchema>>({
@@ -134,6 +135,7 @@ function ConnectForm() {
             disabled={connectForm.formState.isSubmitting}
           >
             Send Message
+            <Send />
           </Button>
 
           <DialogClose asChild>
