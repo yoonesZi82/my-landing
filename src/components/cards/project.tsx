@@ -6,40 +6,51 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { Button } from '../ui/button'
+import { Badge } from '../ui/badge'
+import { cn, formatDate } from '@/lib/utils'
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
+import { useState } from 'react'
+import type { ProjectType } from './types/project.type'
 import AvatarGroup from '../avatar-group/AvatarGroup'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Badge } from '../ui/badge'
-import { Button } from '../ui/button'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import { useState } from 'react'
-import { formatDate } from '@/lib/utils'
-import type { ProjectType } from './types/project.type'
+import { Skeleton } from '../ui/skeleton'
 
-function ProjectCard({ project }: { project: ProjectType }) {
-  const newDate = new Date()
+function Project({ project }: { project: ProjectType }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+
+  const baseUrlProject = import.meta.env.VITE_BASE_URL_PROJECT
+  const baseUrlFramework = import.meta.env.VITE_BASE_URL_FRAMEWORK
 
   return (
     <Card className="border-none w-full h-full">
-      <CardHeader className="w-full max-h-[250px] overflow-hidden">
+      <CardHeader className="relative w-full max-h-[250px] overflow-hidden">
+        {!isImageLoaded && (
+          <Skeleton className="rounded-xl w-full h-[180px] lg:h-[250px]" />
+        )}
         <img
-          src={`/imagess/${project.projectUrl}`}
+          src={`${baseUrlProject}/${project.projectUrl}`}
           alt="site"
-          className="rounded-xl w-full max-h-[250px] object-cover"
+          className={cn(
+            'rounded-xl w-full max-h-[250px] object-cover transition-opacity duration-500',
+            isImageLoaded ? 'opacity-100' : 'opacity-0',
+          )}
+          onLoad={() => setIsImageLoaded(true)}
           onError={(e) => {
             e.currentTarget.src = '/images/logo.png'
+            setIsImageLoaded(true)
           }}
+          loading="lazy"
         />
       </CardHeader>
+
       <CardContent className="flex flex-col gap-4">
         <div className="flex justify-between items-center w-full">
-          <CardTitle>{project.title}</CardTitle>
+          <CardTitle className="w-full">{project.title}</CardTitle>
+
           <Badge variant="outline" className="rounded-xl">
-            {formatDate(newDate)}
+            {formatDate(project.createdAt)}
           </Badge>
         </div>
         <CardDescription className="line-clamp-3">
@@ -61,18 +72,23 @@ function ProjectCard({ project }: { project: ProjectType }) {
           </p>
         </CardDescription>
       </CardContent>
+
       <CardFooter className="flex justify-between items-center gap-5">
         <Button className="rounded-lg w-1/2" asChild>
           <a href={project.link} target="_blank">
             See project
           </a>
         </Button>
+
         <AvatarGroup className="flex items-center" max={3}>
-          {project.framework.map((framework, index) => (
+          {project.frameworks.map((fw, index) => (
             <Avatar key={index} className="-ml-2 first:ml-0 cursor-pointer">
-              <AvatarImage src={`/images/${framework}.png`} alt={framework} />
+              <AvatarImage
+                src={`${baseUrlFramework}/${fw.framework.frameworkUrl}`}
+                alt={fw.framework.name}
+              />
               <AvatarFallback className="bg-primary text-white">
-                {framework.charAt(0).toUpperCase()}
+                {fw.framework.name.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
           ))}
@@ -82,4 +98,4 @@ function ProjectCard({ project }: { project: ProjectType }) {
   )
 }
 
-export default ProjectCard
+export default Project

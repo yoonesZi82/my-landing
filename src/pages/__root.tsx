@@ -21,11 +21,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         disableTransitionOnChange
       >
         <Navbar />
-        <main className="">
-          <Outlet />
-          <Toaster position="top-center" />
-        </main>
+        <Outlet />
         <Footer />
+        <Toaster position="top-center" />
       </ThemeProvider>
       <TanStackRouterDevtools />
       <TanStackQueryLayout />

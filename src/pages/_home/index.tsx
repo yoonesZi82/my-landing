@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import ScrollDown from './-components/scroll-down'
-import ProjectPart from './-components/project-part'
 import { useRef } from 'react'
 import ContactPart from './-components/contact-part/contact-part'
 import AboutPart from './-components/about-part'
 import HeroSection from './-components/hero-section'
 import LibrarySlider from './-components/library-slider'
 import ReactLenis from 'lenis/react'
+import ProjectSection from './-components/project-section'
 
 export const Route = createFileRoute('/_home/')({
   component: Home,
@@ -25,7 +25,7 @@ function Home() {
             className="flex flex-col gap-10 pt-20 container"
             ref={ref}
           >
-            <ProjectPart />
+            <ProjectSection />
             <AboutPart />
             <ContactPart />
             <LibrarySlider />

@@ -1,10 +1,12 @@
+import type { FrameworkType } from './framework.type'
+
 interface ProjectType {
   id: number
   title: string
   description: string
   projectUrl: string
   link: string
-  framework: string[]
+  frameworks: [{ framework: FrameworkType }]
   createdAt: Date
   updatedAt: Date
 }
