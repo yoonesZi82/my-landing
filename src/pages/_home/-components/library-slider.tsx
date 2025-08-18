@@ -13,13 +13,12 @@ const ReviewCard = ({
   frameworkUrl: string
   name: string
 }) => {
-  const baseFrameworkUrl = import.meta.env.VITE_BASE_URL_FRAMEWORK
   return (
     <figure className="relative w-50 overflow-hidden cursor-pointer">
       <div className="flex flex-col items-center gap-2 [&_svg]:size-10">
         <Avatar className="size-16">
           <AvatarImage
-            src={`${baseFrameworkUrl}/${frameworkUrl}`}
+            src={`https://web-yoones-api.onrender.com/uploads/framework/${frameworkUrl}`}
             className="w-full h-full object-cover"
           />
           <AvatarFallback>{name.charAt(0).toUpperCase()}</AvatarFallback>

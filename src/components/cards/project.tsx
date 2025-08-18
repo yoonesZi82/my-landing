@@ -20,9 +20,6 @@ function Project({ project }: { project: ProjectType }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isImageLoaded, setIsImageLoaded] = useState(false)
 
-  const baseUrlProject = import.meta.env.VITE_BASE_URL_PROJECT
-  const baseUrlFramework = import.meta.env.VITE_BASE_URL_FRAMEWORK
-
   return (
     <Card className="border-none w-full h-full">
       <CardHeader className="relative w-full max-h-[250px] overflow-hidden">
@@ -30,7 +27,7 @@ function Project({ project }: { project: ProjectType }) {
           <Skeleton className="rounded-xl w-full h-[180px] lg:h-[250px]" />
         )}
         <img
-          src={`${baseUrlProject}/${project.projectUrl}`}
+          src={`https://web-yoones-api.onrender.com/uploads/project/${project.projectUrl}`}
           alt="site"
           className={cn(
             'rounded-xl w-full max-h-[250px] object-cover transition-opacity duration-500',
@@ -84,7 +81,7 @@ function Project({ project }: { project: ProjectType }) {
           {project.frameworks.map((fw, index) => (
             <Avatar key={index} className="-ml-2 first:ml-0 cursor-pointer">
               <AvatarImage
-                src={`${baseUrlFramework}/${fw.framework.frameworkUrl}`}
+                src={`https://web-yoones-api.onrender.com/uploads/framework/${fw.framework.frameworkUrl}`}
                 alt={fw.framework.name}
                 className="w-full h-full object-cover"
               />
