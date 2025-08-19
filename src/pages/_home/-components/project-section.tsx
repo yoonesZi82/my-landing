@@ -94,9 +94,11 @@ function ProjectSection() {
               ))}
 
             {!isLoading && allProjects.length === 0 && (
-              <p className="text-2xl lg:text-3xl text-center">
-                No projects found
-              </p>
+              <div className="flex justify-center items-center">
+                <p className="text-2xl lg:text-3xl text-center">
+                  No projects found
+                </p>
+              </div>
             )}
 
             {isFetchingNextPage &&

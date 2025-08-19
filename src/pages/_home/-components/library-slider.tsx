@@ -62,9 +62,11 @@ function LibrarySlider() {
                 </Marquee>
               </div>
             ) : (
-              <p className="text-2xl lg:text-3xl text-center">
-                No frameworks found
-              </p>
+              <div className="flex justify-center items-center">
+                <p className="text-2xl lg:text-3xl text-center">
+                  No frameworks found
+                </p>
+              </div>
             )}
           </div>
         )}
