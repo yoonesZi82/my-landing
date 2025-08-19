@@ -33,8 +33,6 @@ function LibrarySlider() {
   const { theme } = useTheme()
   const { data: frameworks = [], isLoading, isError } = useFrameworks()
 
-  console.log('frameworks--->', frameworks)
-
   return (
     <>
       <div className="flex flex-col justify-center items-center overflow-hidden container">
@@ -55,13 +53,19 @@ function LibrarySlider() {
               <br />
               Frameworks & Libraries
             </div>
-            <div className="relative flex flex-col justify-center items-center bg-transparent py-20 w-full h-full overflow-hidden">
-              <Marquee pauseOnHover className="[--duration:20s]">
-                {frameworks.map((framework: FrameworkType) => (
-                  <ReviewCard key={framework.id} {...framework} />
-                ))}
-              </Marquee>
-            </div>
+            {frameworks.length > 0 ? (
+              <div className="relative flex flex-col justify-center items-center bg-transparent py-20 w-full h-full overflow-hidden">
+                <Marquee pauseOnHover className="[--duration:20s]">
+                  {frameworks.map((framework: FrameworkType) => (
+                    <ReviewCard key={framework.id} {...framework} />
+                  ))}
+                </Marquee>
+              </div>
+            ) : (
+              <p className="text-2xl lg:text-3xl text-center">
+                No frameworks found
+              </p>
+            )}
           </div>
         )}
         <div className="after:top-1/2 after:-left-1/2 before:absolute after:absolute relative before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#369eff,transparent_80%)] after:bg-secondary before:opacity-100 -mt-42 lg:-mt-38 after:border-t after:border-border after:rounded-[100%] w-screen after:w-[200%] h-96 after:aspect-[1/0.7] overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)]">

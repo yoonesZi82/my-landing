@@ -75,6 +75,7 @@ function ProjectSection() {
               ))}
 
             {!isLoading &&
+              allProjects.length > 0 &&
               allProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -91,6 +92,12 @@ function ProjectSection() {
                   <Project project={project} />
                 </motion.div>
               ))}
+
+            {!isLoading && allProjects.length === 0 && (
+              <p className="text-2xl lg:text-3xl text-center">
+                No projects found
+              </p>
+            )}
 
             {isFetchingNextPage &&
               Array.from({ length: 6 }).map((_, index) => (
