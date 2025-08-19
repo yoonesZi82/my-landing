@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 import ProjectSkeleton from '@/components/cards/project-skeleton'
 import { Separator } from '@/components/ui/separator'
 
-const PAGE_SIZE = 1
+const PAGE_SIZE = 6
 
 async function fetchProjects({ pageParam = 1 }): Promise<ProjectType[]> {
   const { data } = await axios.get(

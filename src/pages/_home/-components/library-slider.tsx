@@ -18,7 +18,7 @@ const ReviewCard = ({
       <div className="flex flex-col items-center gap-2 [&_svg]:size-10">
         <Avatar className="size-16">
           <AvatarImage
-            src={`https://web-yoones-api.onrender.com/uploads/framework/${frameworkUrl}`}
+            src={frameworkUrl}
             className="w-full h-full object-cover"
           />
           <AvatarFallback>{name.charAt(0).toUpperCase()}</AvatarFallback>
