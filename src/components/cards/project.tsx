@@ -27,7 +27,7 @@ function Project({ project }: { project: ProjectType }) {
           <Skeleton className="rounded-xl w-full h-[180px] lg:h-[250px]" />
         )}
         <img
-          src={`https://web-yoones-api.onrender.com/uploads/project/${project.projectUrl}`}
+          src={project.projectUrl}
           alt="site"
           className={cn(
             'rounded-xl w-full max-h-[250px] object-cover transition-opacity duration-500',
@@ -81,7 +81,7 @@ function Project({ project }: { project: ProjectType }) {
           {project.frameworks.map((fw, index) => (
             <Avatar key={index} className="-ml-2 first:ml-0 cursor-pointer">
               <AvatarImage
-                src={`https://web-yoones-api.onrender.com/uploads/framework/${fw.framework.frameworkUrl}`}
+                src={fw.framework.frameworkUrl}
                 alt={fw.framework.name}
                 className="w-full h-full object-cover"
               />
