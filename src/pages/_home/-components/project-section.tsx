@@ -58,7 +58,7 @@ function ProjectSection() {
       <div
         className={cn(
           'w-full ',
-          isError
+          isError || (allProjects.length === 0 && !isLoading)
             ? 'flex justify-center items-center'
             : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-center place-items-center',
         )}
