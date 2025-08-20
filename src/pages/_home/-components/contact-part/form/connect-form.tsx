@@ -17,45 +17,41 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import axios from 'axios'
 import { toast } from 'sonner'
-import { Send } from 'lucide-react'
+import { LoaderCircle, Send } from 'lucide-react'
+import { useState } from 'react'
 
 function ConnectForm() {
+  const [isLoading, setIsLoading] = useState(false)
   const connectForm = useForm<z.infer<typeof connectSchema>>({
     resolver: zodResolver(connectSchema),
     defaultValues: {
       username: '',
-      phone: '',
+      mobile: '',
       email: '',
       message: '',
     },
   })
 
   async function sendMessage(data: z.infer<typeof connectSchema>) {
-    const apiKey = import.meta.env.VITE_VERIFY_PHONE_API_KEY
-    const { phone } = data
+    setIsLoading(true)
 
-    await toast.promise(
-      axios.get(`https://api.veriphone.io/v2/verify`, {
-        params: {
-          key: apiKey,
-          phone: `+${phone}`,
-        },
-      }),
-      {
-        loading: 'Checking phone number ...',
-        success: (res) => {
-          if (res.data.status === 'success' && res.data.phone_valid) {
-            connectForm.reset()
-            return 'Phone number is valid & send message successfully'
-          } else {
-            return 'Phone number is not valid'
-          }
-        },
-        error: () => {
-          return ' خطا در بررسی شماره'
-        },
-      },
-    )
+    await axios
+      .post('https://web-yoones-api.onrender.com/messages', {
+        username: data.username,
+        email: data.email,
+        mobile: data.mobile,
+        message: data.message,
+      })
+      .then(() => {
+        connectForm.reset()
+        toast.success('Message sent successfully')
+      })
+      .catch(() => {
+        toast.error('Error in sending message')
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   return (
@@ -79,7 +75,7 @@ function ConnectForm() {
         />
         <FormField
           control={connectForm.control}
-          name="phone"
+          name="mobile"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -132,10 +128,10 @@ function ConnectForm() {
             type="submit"
             className="w-full"
             size="lg"
-            disabled={connectForm.formState.isSubmitting}
+            disabled={isLoading}
           >
             Send Message
-            <Send />
+            {isLoading ? <LoaderCircle className="animate-spin" /> : <Send />}
           </Button>
 
           <DialogClose asChild>
