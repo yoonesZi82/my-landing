@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="w-full container">
           <div className="flex sm:flex-row flex-col-reverse justify-between items-center gap-x-2 gap-y-5 py-8">
             <span className="text-muted-foreground">
-              Built with ❤️ by Younes – Full Stack Developer
+              Built with ❤️ by Yoones – Full Stack Developer
             </span>
 
             <div className="flex items-center gap-5 text-muted-foreground">
