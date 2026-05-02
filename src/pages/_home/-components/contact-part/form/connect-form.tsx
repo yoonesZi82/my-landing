@@ -36,7 +36,7 @@ function ConnectForm() {
     setIsLoading(true)
 
     await axios
-      .post('https://e6f7-104-156-151-35.ngrok-free.app/messages', {
+      .post('https://3bf9-104-156-151-35.ngrok-free.app/messages', {
         username: data.username,
         email: data.email,
         mobile: data.mobile,
