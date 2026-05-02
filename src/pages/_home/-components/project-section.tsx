@@ -14,7 +14,7 @@ const PAGE_SIZE = 6
 
 async function fetchProjects({ pageParam = 1 }): Promise<ProjectType[]> {
   const { data } = await axios.get(
-    `https://e6f7-104-156-151-35.ngrok-free.app//projects`,
+    `https://e6f7-104-156-151-35.ngrok-free.app/projects`,
     { params: { page: pageParam, limit: PAGE_SIZE } },
   )
   return data.data

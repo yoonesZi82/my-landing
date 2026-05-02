@@ -6,7 +6,7 @@ function useFrameworks() {
     queryKey: ['frameworks'],
     queryFn: async () => {
       const res = await axios.get(
-        'https://e6f7-104-156-151-35.ngrok-free.app//frameworks',
+        'https://e6f7-104-156-151-35.ngrok-free.app/frameworks',
       )
       return res.data.data
     },
