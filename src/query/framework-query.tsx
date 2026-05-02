@@ -6,7 +6,7 @@ function useFrameworks() {
     queryKey: ['frameworks'],
     queryFn: async () => {
       const res = await axios.get(
-        'https://web-yoones-api.onrender.com/frameworks',
+        'https://e6f7-104-156-151-35.ngrok-free.app//frameworks',
       )
       return res.data.data
     },

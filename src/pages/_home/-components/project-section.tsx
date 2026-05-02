@@ -14,7 +14,7 @@ const PAGE_SIZE = 6
 
 async function fetchProjects({ pageParam = 1 }): Promise<ProjectType[]> {
   const { data } = await axios.get(
-    `https://web-yoones-api.onrender.com/projects`,
+    `https://e6f7-104-156-151-35.ngrok-free.app//projects`,
     { params: { page: pageParam, limit: PAGE_SIZE } },
   )
   return data.data
@@ -48,16 +48,16 @@ function ProjectSection() {
       className="flex flex-col justify-center items-center gap-5 w-full"
     >
       <div className="relative flex justify-center items-center my-4 w-full overflow-hidden">
-        <Separator className="bg-transparent border border-t border-border w-full h-1" />
+        <Separator className="bg-transparent border border-border border-t w-full h-1" />
         <div className="px-6 font-semibold text-2xl lg:text-5xl text-center">
           {' '}
           Projects{' '}
         </div>
-        <Separator className="bg-transparent border border-t border-border w-full h-1" />
+        <Separator className="bg-transparent border border-border border-t w-full h-1" />
       </div>
       <div
         className={cn(
-          'w-full ',
+          'w-full',
           isError || (allProjects.length === 0 && !isLoading)
             ? 'flex justify-center items-center'
             : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-center place-items-center',
