@@ -12,6 +12,6 @@ function useFrameworks() {
     },
     staleTime: 1000 * 60 * 5, // 5 minutes cache
   })
-}
+} // update domain
 
 export default useFrameworks
